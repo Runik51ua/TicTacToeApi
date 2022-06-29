@@ -3,15 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Game extends Model
 {
     use HasFactory;
 
     public const STATUS_IN_PROGRESS = 'in_progress';
+
     public const STATUS_FINISHED = 'finished';
 
     protected $fillable = ['status', 'board', 'token', 'current_turn'];
@@ -23,6 +24,6 @@ class Game extends Model
 
     public function latestSession(): HasOne
     {
-        return $this->hasOne(Session::class)->latest();;
+        return $this->hasOne(Session::class)->latest();
     }
 }

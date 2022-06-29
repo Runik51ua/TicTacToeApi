@@ -27,7 +27,7 @@ class VerifyJwtToken
 
         $validated = $validator->safe()->only(['token']);
 
-        if (JwtTokenService::ValidateToken($validated['token'])) {
+        if (JwtTokenService::validateToken($validated['token'])) {
             return $next($request);
         }
 

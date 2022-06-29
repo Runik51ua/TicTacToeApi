@@ -7,7 +7,10 @@ use App\Services\TicTacToeService;
 
 class TicTacToeResponseSchema implements ResponseSchemaInterface
 {
-
+    /**
+     * @param Game $game
+     * @return array
+     */
     public function gameBoardResponse(Game $game): array
     {
         return [
@@ -18,6 +21,10 @@ class TicTacToeResponseSchema implements ResponseSchemaInterface
         ];
     }
 
+    /**
+     * @param string $message
+     * @return string[]
+     */
     public function gameBoardErrorResponse(string $message): array
     {
         return [

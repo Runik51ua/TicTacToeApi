@@ -14,10 +14,9 @@ class ApiAuthController extends Controller
      * @return JsonResponse
      */
     public function getToken(
-        JwtTokenService  $jwtTokenService,
+        JwtTokenService $jwtTokenService,
         TicTacToeService $ticTacToeService
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $token = $jwtTokenService->getToken();
 
         $ticTacToeService->createGame($token);

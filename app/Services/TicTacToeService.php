@@ -4,18 +4,12 @@ namespace App\Services;
 
 use App\Models\Game;
 use App\Models\Session;
-use Illuminate\Database\Eloquent\Collection;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Cookie;
-use Mockery\Exception;
-use Ramsey\Collection\Exception\NoSuchElementException;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
-use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 
 class TicTacToeService
 {
-
     public const BOARD = [
         ['', '', ''],
         ['', '', ''],

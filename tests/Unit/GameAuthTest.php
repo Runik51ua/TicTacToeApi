@@ -27,7 +27,7 @@ class GameAuthTest extends TestCase
     public function test_validateJwtTokenWhenOk()
     {
         $dummyToken = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJuYW1lIjpudWxsLCJjcmVhdGVkQXQiOjE2NTY0MjgyNDN9.-4gOvhTyikRIgTvDxUrTRFg22rZHIaFRvn-jrpyGeVg';
-        $result = JwtTokenService::ValidateToken($dummyToken);
+        $result = JwtTokenService::validateToken($dummyToken);
         $this->assertTrue($result);
     }
 
@@ -49,7 +49,7 @@ class GameAuthTest extends TestCase
      */
     public function test_validateJwtTokenWhenWrongToken($tokenData, $expectedMessage)
     {
-        $result = JwtTokenService::ValidateToken($tokenData);
+        $result = JwtTokenService::validateToken($tokenData);
         $this->assertEquals($expectedMessage, $result);
     }
 

@@ -1,6 +1,10 @@
-### Local deploy steps:
+### main docker commands:
 
----
+`docker-compose up -d `
+
+`docker-compose exec php bash`
+
+### run inside docker container
 1.`composer install`
 
 
@@ -19,7 +23,17 @@ and **PHP Stan**
 ```
 ./vendor/bin/phpstan analyse
 ```
+#### run test with
+
 **testing env**
 
 `php artisan config:cache --env=testing`
+
+`php artisan test`
+
+#### run test with coverage % 
+
+`php artisan test --coverage`
+
+
 

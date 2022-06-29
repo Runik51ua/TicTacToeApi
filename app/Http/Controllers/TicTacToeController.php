@@ -8,30 +8,29 @@ use App\Http\Requests\MoveRequest;
 use App\Services\TicTacToeService;
 use App\Responses\TicTacToeResponseSchema;
 use Symfony\Component\HttpKernel\Exception\ConflictHttpException;
-use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use Symfony\Component\HttpKernel\Exception\NotAcceptableHttpException;
 
 class TicTacToeController extends Controller
 {
     /**
      * @var TicTacToeService
      */
-    private $ticTacToe;
+    private TicTacToeService $ticTacToe;
 
     /**
      * @var TicTacToeResponseSchema
      */
-    private $tacToeResponseSchema;
+    private TicTacToeResponseSchema $tacToeResponseSchema;
 
     /**
      * @param TicTacToeService $ticTacToeService
      * @param TicTacToeResponseSchema $tacToeResponseSchema
      */
     public function __construct(
-        TicTacToeService        $ticTacToeService,
+        TicTacToeService $ticTacToeService,
         TicTacToeResponseSchema $tacToeResponseSchema,
-    )
-    {
+    ) {
         $this->ticTacToe = $ticTacToeService;
         $this->tacToeResponseSchema = $tacToeResponseSchema;
     }
@@ -42,8 +41,7 @@ class TicTacToeController extends Controller
      */
     public function getBoardAction(
         Request $request
-    ): JsonResponse
-    {
+    ): JsonResponse {
         $game = $this->ticTacToe->getGame($request->get('token'));
 
         $responseBody = $this->tacToeResponseSchema->gameBoardResponse($game);

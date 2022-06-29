@@ -22,8 +22,9 @@ class JwtTokenService
 
     /**
      * @param string $token
+     * @return bool
      */
-    public static function ValidateToken(string $token): bool
+    public static function validateToken(string $token): bool
     {
         try {
             JWT::decode($token, new Key(env('APP_KEY'), 'HS256'));
